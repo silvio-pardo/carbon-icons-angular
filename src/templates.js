@@ -23,6 +23,7 @@ const componentTemplate = namespace => `
   template: \`
     <svg
       ibmIcon${pascal(namespace)}
+      [attr.fill]="color"
       [size]="size"
       [ariaLabel]="ariaLabel"
       [ariaLabelledby]="ariaLabelledby"
@@ -41,6 +42,7 @@ export class ${classCase(namespace)}Component {
   @Input() focusable: boolean = false;
   @Input() innerClass: string;
   @Input() size: string;
+  @Input() color: string = '#000000';
 }
 `;
 
@@ -66,6 +68,7 @@ export class ${classCase(
   @Input() title: string;
   @Input() isFocusable: boolean = false;
   @Input() size: string;
+  @Input() color: string = '#000000';
 
   protected icons = {
     ${iconMeta.output.reduce((str, icon) => `${str}${formatIconObject(icon)}`, '')}
